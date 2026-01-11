@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    container_name: excel-folder-generator
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - uploads:/app/uploads
+    restart: unless-stopped
+
+volumes:
+  uploads:
