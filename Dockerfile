@@ -1,11 +1,12 @@
 FROM node:20-alpine AS base
+RUN apk add --no-cache libc6-compat
+RUN npm install -g bun
 
 FROM base AS deps
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package.json bun.lockb* ./
-RUN npm install -g bun && bun install --frozen-lockfile
+RUN bun install --frozen-lockfile
 
 FROM base AS builder
 WORKDIR /app
