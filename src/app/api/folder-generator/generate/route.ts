@@ -32,9 +32,9 @@ async function cleanupOldFiles() {
 function toTitleCase(str: string): string {
   if (!str) return "";
   return str
-    .toLowerCase()
+    .toLocaleLowerCase("tr-TR")
     .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word.charAt(0).toLocaleUpperCase("tr-TR") + word.slice(1))
     .join(" ");
 }
 
