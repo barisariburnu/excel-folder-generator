@@ -26,7 +26,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
-RUN mkdir -p uploads && chown -R nextjs:nodejs uploads
+RUN mkdir -p uploads temp-folders && chown -R nextjs:nodejs /app
 
 USER nextjs
 
